@@ -1,0 +1,29 @@
+version: "3"
+services:
+  api-db:
+    image: "postgres:11"
+    container_name: "api"
+    environment:
+      - POSTGRES_USER=api
+      - POSTGRES_PASSWORD=api
+      - POSTGRES_DB=api
+    ports:
+      - '5433:5432'
+    volumes:
+      - ./postgres-data:/var/lib/postgresql/data   
+  db_migrations:
+    image: migrate/migrate
+    container_name: db_migrations
+    volumes:
+      - ./migrations:/migrations
+    depends_on:
+      - api-db 
+    command: sleep 10 && -path=/migrations  -database postgres://api:api@api-db:5432/api?sslmode=disable up 
+  api:
+    container_name: "api-golang"
+    build:
+      context: .
+    depends_on:
+      - api-db  
+    ports:
+      - '9876:9011'  
