@@ -20,7 +20,6 @@ run:
 	CompileDaemon -exclude-dir ".git" -exclude-dir "postgres-data" --build="go build cmd/rest/server.go" --command=./server
 
 stack:
-	@sh -c "sleep 5"
 	go clean -testcache
 	go test ./... -v
 	go run cmd/rest/server.go
