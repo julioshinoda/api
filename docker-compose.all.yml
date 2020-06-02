@@ -18,7 +18,7 @@ services:
       - ./migrations:/migrations
     depends_on:
       - api-db 
-    command: sleep 10 && -path=/migrations  -database postgres://api:api@api-db:5432/api?sslmode=disable up 
+    command: -path=/migrations  -database postgres://api:api@api-db:5432/api?sslmode=disable up 
   api:
     container_name: "api-golang"
     build:

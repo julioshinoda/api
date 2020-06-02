@@ -27,7 +27,7 @@ stack:
 
 
 migration:
-	docker-compose up db_migrations
+	docker-compose -f docker-compose.all.yml up db_migrations
 
 test :
 	go clean -testcache

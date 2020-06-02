@@ -14,7 +14,7 @@ import (
 
 func main() {
 	addr := fmt.Sprintf(":%s", os.Getenv("PORT"))
-	log.Println(fmt.Sprintf("Server start on PORT %s", os.Getenv("PORT")))
+	log.Println(fmt.Sprintf("Server start"))
 	http.ListenAndServe(addr, router())
 }
 
