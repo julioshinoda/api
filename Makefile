@@ -19,17 +19,11 @@ build:
 run:
 	CompileDaemon -exclude-dir ".git" -exclude-dir "postgres-data" --build="go build cmd/rest/server.go" --command=./server
 
-stack:
-	go clean -testcache
-	go test ./... -v
-	go run cmd/rest/server.go
-
 
 migration:
 	docker-compose -f docker-compose.all.yml up db_migrations
 
 test :
-	go clean -testcache
 	go test ./... -race -coverprofile cp.out
 	go tool cover -html=./cp.out -o cover.html
 
