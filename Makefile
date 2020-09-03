@@ -19,6 +19,10 @@ build:
 run:
 	CompileDaemon -exclude-dir ".git" -exclude-dir "postgres-data" --build="go build cmd/rest/server.go" --command=./server
 
+stack:
+	go test ./... -v
+	go run cmd/rest/server.go
+
 
 migration:
 	docker-compose -f docker-compose.all.yml up db_migrations
