@@ -30,6 +30,8 @@ Logo após os comandos acima, é possível fazer as requests:
 2. Consulta de informações de uma conta
 ```curl http://localhost:9876/accounts/:accountId```
 
+Onde *:accountId* deve ser subsitiduido pelo id retornado no item 1 
+
 3. Criação de uma transação
-```curl -d '{"account_id":15,"operation_type_id":4,"amount": 13.25}' -H 'Content-type: application/json' http://localhost:9876/transactions ```
+```curl -d '{"account_id":1,"operation_type_id":4,"amount": 13.25}' -H 'Content-type: application/json' http://localhost:9876/transactions ```
 

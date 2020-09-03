@@ -31,6 +31,5 @@ func (repo TransactionRepo) Create(transaction models.Transaction) (models.Trans
 		return transaction, err
 	}
 	transaction.EventDate = now
-	defer repo.DB.Close(context.Background())
 	return transaction, nil
 }

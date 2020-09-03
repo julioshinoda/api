@@ -8,7 +8,7 @@ services:
       - POSTGRES_PASSWORD=api
       - POSTGRES_DB=api
     ports:
-      - '5433:5432'
+      - '5432:5432'
     volumes:
       - ./postgres-data:/var/lib/postgresql/data   
   db_migrations:

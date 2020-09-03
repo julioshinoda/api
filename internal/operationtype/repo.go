@@ -29,6 +29,5 @@ func (repo OperationTypeRepo) GetOperationTypeByID(ID int32) (models.OperationTy
 		fmt.Println("err:", err.Error())
 		return operationtype, err
 	}
-	defer repo.DB.Close(context.Background())
 	return operationtype, nil
 }

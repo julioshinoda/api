@@ -31,7 +31,6 @@ func (repo AccountRepo) GetByID(ID int32) (models.Account, error) {
 		fmt.Println("err:", err.Error())
 		return account, err
 	}
-	defer repo.DB.Close(context.Background())
 	return account, nil
 }
 
@@ -42,7 +41,6 @@ func (repo AccountRepo) GetByDocument(document string) (models.Account, error) {
 		fmt.Println("err:", err.Error())
 		return account, err
 	}
-	defer repo.DB.Close(context.Background())
 	return account, nil
 }
 
@@ -52,6 +50,5 @@ func (repo AccountRepo) Create(account models.Account) (models.Account, error) {
 	if err := repo.DB.QueryRow(context.Background(), insertSQL, account.DocumentNumber).Scan(&account.ID); err != nil {
 		return account, err
 	}
-	defer repo.DB.Close(context.Background())
 	return account, nil
 }
